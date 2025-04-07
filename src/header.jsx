@@ -1,7 +1,6 @@
 import React from 'react'
-import img1 from './assets/arrow.png'
-import img2 from './assets/camera.png'
-import img3 from './assets/clapper.png'
+
+
 
 const header = () => {
   return (
@@ -13,10 +12,8 @@ const header = () => {
       Search a movie down below 
       <hr/>
       </h3>
-     <img src={img1} alt="arrow" className='image1'/>
-     <img src={img2} alt="camera" className='image2'/>
-     <img src={img3} alt="clapper" className='image3'/>
-    
+   
+
     </div>
   )
 }
