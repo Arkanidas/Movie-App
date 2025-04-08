@@ -1,16 +1,13 @@
 import React from 'react'
-
+import { FaStar } from 'react-icons/fa';
 
 
 const header = () => {
   return (
     <div className='header-container'>
-      <h1>Welcome to Omdb!</h1>
-      <h3>This is the hidden database where you can access all movies & series for free without<br/> ads at 
-        your service 24/7. The only catch is your soul which will be taken 30 years after first use.
-      <br/><br/>
-      Search a movie down below 
-      <hr/>
+      <h1 className='header-title'>Welcome to CinemaXynapse</h1>
+      <h3 className='header-description'>This is an IMDB database app that lets you search for any movie and explore its content &#127871; 
+       
       </h3>
    
 

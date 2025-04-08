@@ -56,11 +56,11 @@ function App() {
       <Link to={`/movie/${item.imdbID}`} key={item.imdbID}>
       <div id='movies' key={item.imdbID} onClick={() => getMovieData(item.imdbID)}>
         <h5>{item.Title}</h5>
-        <h5>{item.imdbID}</h5>
         <p>
-          {item.Type} - {item.Year}
+          {item.Type}
         </p>
         <img className="poster-img" src={item.Poster} alt={item.Title}></img>
+  
       </div>
         </Link>
     ));
