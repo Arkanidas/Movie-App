@@ -31,14 +31,18 @@ function MovieDetails() {
     </Link>
 
     <div className='movies-container'>
+   
     <img className="movie-poster" src={movie.Poster} alt={movie.Title} />
+
 
     <div className="movie-details">
       <h5 className='Movie-title'>{movie.Title}</h5>
-      <p className='movie-description'><strong>Genre:</strong> {movie.Genre}</p>
-      <p className='movie-description'><strong>Plot:</strong> {movie.Plot}</p>
-      <p className='movie-description'><strong>Awards:</strong> {movie.Awards}</p>
-      <p className='movie-description'><strong>IMDB Rating:</strong> {movie.imdbRating}</p>
+      <p className='movie-description'><strong><category>Genre:</category></strong> {movie.Genre}</p>
+      <p className='movie-description'><strong><category>Plot:</category></strong> {movie.Plot}</p>
+      <p className='movie-description'><strong><category>Awards:</category></strong> {movie.Awards}</p>
+      <p className='movie-description'><strong><category>Runtime:</category></strong> {movie.Runtime}</p>
+      <p className='movie-description'><strong><category>Actors:</category></strong> {movie.Actors}</p>
+      <p className='movie-description'><strong><category>IMDB Rating:</category></strong> {movie.imdbRating}</p>
     </div>
     </div>
     </div>
