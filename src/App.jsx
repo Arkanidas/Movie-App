@@ -53,12 +53,10 @@ function App() {
   else if ( data.Response === "True" && data.Search && data.Search.length > 0) {
     datalist = data.Search.map((item) => (
 
-      <Link to={`/movie/${item.imdbID}`} key={item.imdbID}>
+      <Link to={`/movie/${item.imdbID}`} key={item.imdbID} style={{ textDecoration: 'none'}} >
       <div id='movies' key={item.imdbID} onClick={() => getMovieData(item.imdbID)}>
         <h5>{item.Title}</h5>
-        <p>
-          {item.Type}
-        </p>
+        <p>{item.Type} - {item.Year}</p>
         <img className="poster-img" src={item.Poster} alt={item.Title}></img>
   
       </div>

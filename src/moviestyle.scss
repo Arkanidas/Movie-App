@@ -1,33 +1,42 @@
 
 body{
-    background: none;
+      background: none;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+
 }
 
 .movie-details{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 10px;
     width: 50%;
     position: relative;
-    left: 45%;
-
-}
-
-.back-button{
-    background-color: rgb(91, 208, 255);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
-    z-index: 10;
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+    background-color: rgba(59, 59, 59, 0.347);
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    backdrop-filter: blur(5px);
     position: relative;
+    left:700px;
+    transform: translate(-50%, 0);
+    z-index: 5;
+    height:600px;
+
 }
 
+
+.Movie-title{
+    font-size: 2.3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: -40px;
+    color: white;
+    text-shadow: 0 4px 3px rgba(241, 241, 241, 0.5);
+}
 
 
 @mixin dots($count) {
@@ -45,7 +54,7 @@ body{
 
 
   .background {
-    height: 100vh;
+  height: 100vh;
   z-index: 0;
   overflow: hidden;
   background: rgb(0, 0, 0);
@@ -70,64 +79,57 @@ body{
     z-index: 0;
   }
   
-  
-  .background::before {
-    @include dots(10);
-    animation-duration: 94s;
-    animation-delay: -27s;
+  .back-button{
+    display: flex;
+    align-items: center;
+    gap: 4px; 
+    background-color: transparent;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #222;
+    font-weight: bold;
+    font-size: 1.2rem;
+    z-index: 10;
+    position: relative;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
   }
+
+  .back-icon {
+  font-size: 1.3rem;
+}
   
-  .background::after {
-    @include dots(21);
-    animation-duration: 84s;
-    animation-delay: -32s;
-  }
-  
-  .background::before {
-    @include dots(20);
-    animation-duration: 100s;
-    animation-delay: -23s;
-  }
-  
-  .background::after {
-    @include dots(15);
-    animation-duration: 99s;
-    animation-delay: -19s;
-  }
+.background::before {
+  @include dots(5); 
+  animation-duration: 120s; 
+  animation-delay: -30s;
+}
+
+.background::after {
+  @include dots(4); 
+  animation-duration: 110s;
+  animation-delay: -25s;
+}
   
   
   @keyframes move {
     from {
-      transform: rotate(0deg) scale(12) translateX(-20px);
+      transform: rotate(0deg) scale(10) translateX(-15px);
     }
     to {
-      transform: rotate(360deg) scale(18) translateX(20px);
+      transform: rotate(360deg) scale(12) translateX(15px);
     }
   }
 
-  body {
-    background: none;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .movie-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 800px;
-    width: 90%;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    backdrop-filter: blur(8px);
-    position: absolute;
-    left:70%;
-    transform: translate(-50%, 0);
-    z-index: 5;
-    height:600px;
-  }
+ 
+
 
     .movies-container {
     display: flex;
@@ -141,76 +143,57 @@ body{
     height:80vh;
     align-items: flex-start;
     margin-top: 4%;
+    border:1px solid green;
   }
   
   .movie-poster {
     width: 100%;
     max-width: 400px;
     border-radius: 10px;
-    -webkit-box-shadow:0px 0px 100px 0px rgba(255,255,255,0.35);
-    -moz-box-shadow: 0px 0px 100px 0px rgba(255,255,255,0.35);
     box-shadow: 0px 0px 100px 0px rgba(255,255,255,0.35);
     animation:breathe 8s infinite;
-
-        height: 600px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        position:absolute;
-        left:20vh;
+    height: 600px;
+    position:absolute;
+    left:20vh;
     
-  
   }
   
   @keyframes breathe {
     0% {
-    -webkit-box-shadow:0px 0px 50px 0px rgba(255,255,255,0.35);
-    -moz-box-shadow: 0px 0px 50px 0px rgba(255,255,255,0.35);
+  
     box-shadow: 0px 0px 50px 0px rgba(255,255,255,0.35);
     }
     50% {
-   -webkit-box-shadow:0px 0px 0px 0px;
-   -moz-box-shadow: 0px 0px 0px 0px ;
+
    box-shadow: 0px 0px 0px 0px ;
     }
     100% {
-    -webkit-box-shadow:0px 0px 50px 0px rgba(255,255,255,0.35);
-    -moz-box-shadow: 0px 0px 50px 0px rgba(255,255,255,0.35);
+
     box-shadow: 0px 0px 50px 0px rgba(255,255,255,0.35);
     }
     
   }
 
 
-  .back-button {
-    margin: 20px;
-    padding: 10px 20px;
-    border: none;
-    background-color: #222;
-    color: white;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  
-    &:hover {
-      background-color: #444;
-    }
-  }
+
+
+
+
  
 
   @media (max-width: 768px) {
-    .movie-details {
-      padding: 15px;
+    .movies-container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: auto;
     }
-  
+
     .back-button {
       padding: 8px 16px;
       font-size: 14px;
     }
   
-    .movie-poster {
-      max-width: 100%;
-    }
   }
   
   @media (max-width: 480px) {
@@ -220,9 +203,12 @@ body{
       border: none;
     }
   
-    .movie-poster {
-      width: 100%;
-      max-width: 100%;
+   
+
+    .movies-container {
+   
+      flex-direction: column;
+    
     }
   }
 

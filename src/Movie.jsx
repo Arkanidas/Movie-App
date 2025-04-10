@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './moviestyle.scss'
 import { Link } from 'react-router-dom'
+import { TbArrowBackUp } from "react-icons/tb";
 
 function MovieDetails() {
   const { imdbID } = useParams()
@@ -25,18 +26,19 @@ function MovieDetails() {
   return (
          
 <div className='background'>
-    <Link to ={ "/"}>
-     <button className="back-button">Back</button>
+    <Link to ={ "/"} style={{ textDecoration: 'none' }}>
+     <button className="back-button"> <TbArrowBackUp className="back-icon"/>Back</button>
     </Link>
 
     <div className='movies-container'>
     <img className="movie-poster" src={movie.Poster} alt={movie.Title} />
+
     <div className="movie-details">
-      <h5>{movie.Title}</h5>
-      <p><strong>Genre:</strong> {movie.Genre}</p>
-      <p><strong>Plot:</strong> {movie.Plot}</p>
-      <p><strong>Awards:</strong> {movie.Awards}</p>
-      <p><strong>IMDB Rating:</strong> {movie.imdbRating}</p>
+      <h5 className='Movie-title'>{movie.Title}</h5>
+      <p className='movie-description'><strong>Genre:</strong> {movie.Genre}</p>
+      <p className='movie-description'><strong>Plot:</strong> {movie.Plot}</p>
+      <p className='movie-description'><strong>Awards:</strong> {movie.Awards}</p>
+      <p className='movie-description'><strong>IMDB Rating:</strong> {movie.imdbRating}</p>
     </div>
     </div>
     </div>
