@@ -1,13 +1,40 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import './moviestyle.scss'
 import { Link } from 'react-router-dom'
 import { TbArrowBackUp } from "react-icons/tb";
+import { FaVolumeXmark } from "react-icons/fa6";
+import { IoMdVolumeHigh } from "react-icons/io";
+import bgMusic from '../public/music.mp3'
+
+
+
 
 function MovieDetails() {
+
   const { imdbID } = useParams()
   const [movie, setMovie] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [volume, setVolume] = useState(false)
+
+  const audioRef = useRef(null);
+
+
+
+
+  const handleVolumeToggle = () => {
+    setVolume(!volume);
+
+    if(volume){
+      audioRef.current.play()
+      audioRef.current.volume = 0.2; 
+    }
+
+    else{
+      audioRef.current.pause()
+    }
+  }
+
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -24,12 +51,29 @@ function MovieDetails() {
   if (!movie) return <p>Movie not found.</p>
 
   return (
+
+    
          
 <div className='background'>
+
+
     <Link to ={ "/"} style={{ textDecoration: 'none' }}>
      <button className="back-button"> <TbArrowBackUp className="back-icon"/>Back</button>
     </Link>
 
+  {volume ? (  
+    <div className="volume-icon">
+     <FaVolumeXmark onClick={handleVolumeToggle}/>
+    </div>
+  
+
+  ):( 
+<div className="volume-icon">
+<IoMdVolumeHigh onClick={handleVolumeToggle}/>
+</div>
+)}
+
+    <audio ref={audioRef} src={bgMusic} loop />
     <div className='movies-container'>
    
     <img className="movie-poster" src={movie.Poster} alt={movie.Title} />
