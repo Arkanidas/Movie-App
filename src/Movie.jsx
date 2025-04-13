@@ -26,12 +26,13 @@ function MovieDetails() {
     setVolume(!volume);
 
     if(volume){
-      audioRef.current.play()
-      audioRef.current.volume = 0.2; 
+      audioRef.current.pause()
     }
 
     else{
-      audioRef.current.pause()
+      audioRef.current.play()
+      audioRef.current.volume = 0.2; 
+    
     }
   }
 
@@ -44,7 +45,17 @@ function MovieDetails() {
       setLoading(false)
     }
 
+    if (audioRef.current) {
+      audioRef.current.volume = 0.2
+      audioRef.current.play().catch(err => {
+        console.log("Autoplay blocked:", err)
+      })
+    }
+
     fetchDetails()
+
+   
+
   }, [imdbID])
 
   if (loading) return <div className="loader"></div>
@@ -63,23 +74,22 @@ function MovieDetails() {
 
   {volume ? (  
     <div className="volume-icon">
-     <FaVolumeXmark onClick={handleVolumeToggle}/>
+    <IoMdVolumeHigh onClick={handleVolumeToggle}/>
     </div>
   
 
   ):( 
 <div className="volume-icon">
-<IoMdVolumeHigh onClick={handleVolumeToggle}/>
+<FaVolumeXmark onClick={handleVolumeToggle}/>
+
 </div>
 )}
 
     <audio ref={audioRef} src={bgMusic} loop />
     <div className='movies-container'>
-   
     <img className="movie-poster" src={movie.Poster} alt={movie.Title} />
-
-
     <div className="movie-details">
+
       <h5 className='Movie-title'>{movie.Title}</h5>
       <p className='movie-description'><strong><category>Genre:</category></strong> {movie.Genre}</p>
       <p className='movie-description'><strong><category>Plot:</category></strong> {movie.Plot}</p>

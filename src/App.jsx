@@ -8,11 +8,12 @@ function App() {
   const [change, setchange] = useState('');
   const [loading, setLoading] = useState(true);
   const [movieData, setMovieData] = useState({});
+  const [type, setType] = useState("movie");
   
 
   const getdata = async () => {
     try{
-    const response = await fetch (`https://www.omdbapi.com/?i=tt3896198&apikey=3febba1&s=${change}`);
+    const response = await fetch (`https://www.omdbapi.com/?i=tt3896198&apikey=3febba1&s=${change}&type=${type}`);
     let data = await response.json();
     setData(data);
     setLoading(false);
@@ -54,7 +55,7 @@ function App() {
     datalist = data.Search.map((item) => (
 
       <Link to={`/movie/${item.imdbID}`} key={item.imdbID} style={{ textDecoration: 'none'}} >
-      <div id='movies' key={item.imdbID} onClick={() => getMovieData(item.imdbID)}>
+      <div id='movies' key={item.imdbID} >
         <h5>{item.Title}</h5>
         <p>{item.Type} - {item.Year}</p>
         <img className="poster-img" src={item.Poster} alt={item.Title}></img>
@@ -72,14 +73,22 @@ useEffect(() => {
   setLoading(true);
   getdata();
 
-}, [change]);
+}, [change, type]);
 
 
   return (
 
 <div className="App">
+
+
 <input type="text" name="input" id="input" onChange={handlechange} placeholder='Search movies...'></input>
-<br/><br/><br/>
+
+<select className="option-select" value={type} onChange={(e) => setType(e.target.value)}>
+  <option value="movie">Movie</option>
+  <option value="series">Series</option>
+</select>
+
+
 <div className='movie-container'>{datalist}</div>
 </div>
 

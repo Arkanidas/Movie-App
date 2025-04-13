@@ -74,6 +74,7 @@ top:15px;
     color{
         color:rgb(255, 52, 52);
         animation: flicker 6s infinite ease-in-out;
+    
        
     }
 
@@ -133,24 +134,50 @@ top:15px;
     padding-top: 420px; 
 }
 
+.option-select {
+  position: absolute;
+  left:50%;
+  top: 350px;
+  width: 6em;
+  transform: translate(-50%);
+  border:1px outset #e6e6e6ca;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  height:30px;
+  padding:5px 10px;
+  color: white;
+  width: 6em;
+  backdrop-filter: sepia(70%);
+  font-family:$description-font;
+
+}
+
 
 #input{
     position: relative;
     left:50%;
-    bottom:180px;
+    bottom:200px;
     transform: translate(-50%);
-    border:3px outset #7c7c7c;
-    border-radius: 5px;
-    width:15em;
+    width:20em;
     height:30px;
     text-align: center;
-    font-size: clamp(1rem, 2vw, 1.3rem);
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.3s ease;
+ 
 }
 
 #input:focus{
-outline:none;
-border:3px outset #F5C518;
+  border-color: #F5C518;
+  box-shadow: 0 0 10px #F5C518;
 }
+
+
 
 #movies{
   width: 100%;
@@ -309,6 +336,17 @@ p{
      font-size: clamp(2rem, 3vw, 2.6rem);
      
     }
+  }
+
+  
+  @media (max-width: 768px) {
+    #input {
+      width: 50%;
+      bottom:180px;
+      height: 25px;
+    }
+  
+  
   }
 
 
