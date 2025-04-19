@@ -57,7 +57,7 @@ function App() {
       <Link to={`/movie/${item.imdbID}`} key={item.imdbID} style={{ textDecoration: 'none'}} >
       <div id='movies' key={item.imdbID} >
         <h5>{item.Title}</h5>
-        <p>{item.Type} - {item.Year}</p>
+        <p>{item.Type}: {item.Year}</p>
         <img className="poster-img" src={item.Poster} alt={item.Title}></img>
   
       </div>
