@@ -330,15 +330,6 @@ p{
 }
   }
   
-  //phone devices 
-  @media (max-width: 390px) {
-    .header-title{
-     font-size: clamp(2rem, 3vw, 2.6rem);
-     
-    }
-  }
-
-  
   @media (max-width: 768px) {
     #input {
       width: 50%;
@@ -346,8 +337,17 @@ p{
       height: 25px;
     }
   
-  
   }
 
+  //phone devices 
+  @media (max-width: 390px) {
+    .header-title{
+     font-size: clamp(1.7rem, 1vw, 1.8rem);
+     
+    }
+  }
+
+  
+  
 
  
